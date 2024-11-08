@@ -230,13 +230,20 @@ export default function HomePage() {
             transition={{ duration: 0.5 }}
             className="lg:col-span-1"
           >
-            <div className="inline-block">
+            <div className="flex flex-col">
               <motion.div
                 className="bg-blue-100 rounded-full px-4 py-1.5 text-sm font-medium text-blue-800 mb-8 inline-block"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 Welcome to Animatical →
+              </motion.div>
+              <motion.div
+                className="bg-blue-100 rounded-full px-4 py-1.5 text-sm text-black font-medium text-blue-800 mb-8 inline-block"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Better view on Desktop →
               </motion.div>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
