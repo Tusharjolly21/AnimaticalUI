@@ -32,6 +32,9 @@ import PricingPage from "./components/PricingPage"
 import TablePage from "./pages/TablePage"
 import FloatingDockPage from "./pages/FloatingDockPage"
 import HeroBackground from "./pages/HeroBackground"
+import WaveBg from "./pages/WaveBg"
+import WizardForm from "./pages/WizardForm"
+import PagesComponent from "./components/PagesComponent"
 
 
 const App = () => {
@@ -76,6 +79,7 @@ const AppContent = () => {
                 <Route path="/templates" element={<TemplateComponent/>}/>
                 <Route path="/pricing" element={<PricingPage/>}/>
                 <Route path="/about" element={<AboutPage />} />
+                <Route path="/pages" element={<PagesComponent/>}/>
                 <Route path="/components/*" element={<ComponentsLayout />} />
               </Routes>
             </div>
@@ -116,6 +120,8 @@ const ComponentsLayout = () => {
         <Route path="/tables" element={<TablePage/>}/>
         <Route path="/floating-dock" element={<FloatingDockPage/>}/>
         <Route path="hero-background" element={<HeroBackground/>}/>
+        <Route path="wavy-background" element={<WaveBg/>}/>
+        <Route path="wizard-form" element={<WizardForm/>}/>
       </Routes>
       {isComponentsRoot && (
         <>

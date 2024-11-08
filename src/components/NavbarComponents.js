@@ -59,6 +59,7 @@ export default function NavbarComponents() {
             <Link to="/templates" className="text-white hover:text-gray-300 dark:text-gray-300 dark:hover:text-white">Templates</Link>
             <Link to="/templates" className="bg-green-100 text-green-900 px-2 py-1 rounded-full text-xs">Coming soon!</Link>
             <Link to="/pricing" className="text-white hover:text-gray-300 dark:text-gray-300 dark:hover:text-white">Pricing</Link>
+            <Link to="/pages" className="text-white hover:text-gray-300 dark:text-gray-300 dark:hover:text-white">Pages</Link>
           </nav>
           <div className="hidden md:flex items-center space-x-4">
             <a href="https://discord.com" className="text-white hover:text-gray-300 dark:text-gray-300 dark:hover:text-white">Discord</a>

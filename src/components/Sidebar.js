@@ -34,6 +34,8 @@ const menuItems = [
   {icon: CiText, text:'Text Generation Effect',link:'/components/text-generation-effect'},
   { icon: FaToolbox, text: 'Floating Dock', link: '/components/floating-dock' },
   { icon: LuWalletCards, text: '3D cards', link: '/components/threeD-cards' },
+  {icon: PiSelectionBackground,text:'Wavy Background',link:'/components/wavy-background'},
+  {icon:SiGoogleforms,text:'Wizard Form',link:'/components/wizard-form'}
 ]
 
 export default function Component({ isOpen, onClose }) {
