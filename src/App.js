@@ -53,7 +53,7 @@ const AppContent = () => {
 
   return (
     <>
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen">
       <Navbar className="fixed top-0 left-0 right-0 z-10" />
       <div className="flex pt-4">
         {showSidebar && (
@@ -62,7 +62,7 @@ const AppContent = () => {
         <div className="flex-1 mt-8">
           {showSidebar && (
             <header className="lg:hidden">
-              <div className="px-4 sm:px-6 lg:px-8">
+              <div className="px-4 sm:px-6 mt-8 lg:px-8">
                 <button
                   onClick={() => setSidebarOpen(true)}
                   className="text-gray-500 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"

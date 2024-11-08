@@ -93,6 +93,8 @@ export default function NavbarComponents() {
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <Link to="/components" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-white hover:bg-gray-700">Components</Link>
           <Link to="/templates" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-white hover:bg-gray-700">Templates</Link>
+          <Link to="/pricing" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-white hover:bg-gray-700">Pricing</Link>
+          <Link to="/pages" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-white hover:bg-gray-700">Pages</Link>
           <a href="https://discord.com" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-white hover:bg-gray-700">Discord</a>
           <a href="https://twitter.com" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-white hover:bg-gray-700">Twitter</a>
         </div>

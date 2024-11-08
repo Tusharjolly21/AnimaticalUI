@@ -18,7 +18,7 @@ const Step = ({ title, description, code, language }) => (
 
 export default function InstallTailwind() {
   return (
-    <div className="mt-10 w-2/3">
+    <div className="mt-10 w-full lg:ml-20">
       <h1 className="text-6xl font-bold mb-6">Tailwind Setup </h1>
       
       <Step

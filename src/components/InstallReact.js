@@ -2,7 +2,7 @@ import { Copy } from "lucide-react"
 
 export default function InstallReact() {
   return (
-    <div className="w-2/3">
+    <div className="w-full lg:ml-20">
       <div className="space-y-2">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">Install React.js with Vite</h1>
         <p className="text-base sm:text-lg text-muted-foreground">Install React.js with Create React App</p>

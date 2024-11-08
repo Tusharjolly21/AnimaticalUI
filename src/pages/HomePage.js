@@ -222,7 +222,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-100">
       <ScrollProgressIndicator />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
           {/* Left Column */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -246,7 +246,7 @@ export default function HomePage() {
                 Better view on Desktop →
               </motion.div>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
               Elevate your websites with{" "}
               <span className="text-blue-600">Animatical</span>
             </h1>
@@ -300,7 +300,7 @@ export default function HomePage() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="bg-blue-600 rounded-2xl p-6 md:p-8 text-white"
             >
-              <h2 className="text-xl md:text-2xl font-bold mb-4">
+              <h2 className="text-lg md:text-xl font-bold mb-4">
                 Supercharge your development
               </h2>
               <p className="text-blue-100">
