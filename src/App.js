@@ -35,6 +35,7 @@ import HeroBackground from "./pages/HeroBackground"
 import WaveBg from "./pages/WaveBg"
 import WizardForm from "./pages/WizardForm"
 import PagesComponent from "./components/PagesComponent"
+import LandingPage from "./pages/LandingPage"
 
 
 const App = () => {
@@ -80,6 +81,7 @@ const AppContent = () => {
                 <Route path="/pricing" element={<PricingPage/>}/>
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/pages" element={<PagesComponent/>}/>
+                <Route path="/pages/landing-page" element={<LandingPage/>}/>
                 <Route path="/components/*" element={<ComponentsLayout />} />
               </Routes>
             </div>
