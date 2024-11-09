@@ -36,6 +36,7 @@ import WaveBg from "./pages/WaveBg"
 import WizardForm from "./pages/WizardForm"
 import PagesComponent from "./components/PagesComponent"
 import LandingPage from "./pages/LandingPage"
+import LoginSignup from "./pages/LoginSignup"
 
 
 const App = () => {
@@ -82,6 +83,7 @@ const AppContent = () => {
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/pages" element={<PagesComponent/>}/>
                 <Route path="/pages/landing-page" element={<LandingPage/>}/>
+                <Route path="/pages/login-signup" element={<LoginSignup/>}/>
                 <Route path="/components/*" element={<ComponentsLayout />} />
               </Routes>
             </div>

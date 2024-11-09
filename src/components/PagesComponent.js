@@ -2,6 +2,9 @@ import { ArrowRight, Users, Paintbrush, Code } from "lucide-react"
 import myImage from '../assets/photo1.png';
 import {Link} from "react-router-dom"
 import myImage1 from "../assets/photo3.png"
+import photo4 from "../assets/photo4.png"
+import photo5 from "../assets/photo5.png"
+import photo6 from "../assets/photo6.png"
 
 export default function PagesComponent() {
   return (
@@ -134,6 +137,59 @@ export default function PagesComponent() {
                   <img
                     src={myImage1}
                     alt='LandingPage'
+                    className="w-full object-cover"
+                  />
+                </Link>
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="px-4 py-12 md:py-24 lg:py-32 max-w-7xl mx-auto">
+      <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-start">
+        <div className="space-y-4">
+          <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Login Signup Page</h1>
+          <p className="text-xl text-muted-foreground">Application UI Kit</p>
+          <p className="text-gray-500 dark:text-gray-400 max-w-[600px]">
+          Modern Animated Login and Signup UI component to kickstart your design system.
+          </p>
+          <div className="flex items-center gap-2">
+          </div>
+        </div>
+        <div className="grid gap-4 lg:gap-8">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <div className="relative group overflow-hidden rounded-lg border bg-background p-2">
+            <Link
+                  to="/pages/login-signup"
+                  className="block overflow-hidden rounded-2xl border bg-white shadow-sm transition-transform hover:scale-105"
+                >
+                  <img
+                    src={photo4}
+                    alt='Login'
+                    className="w-full object-cover"
+                  />
+                </Link>
+            </div>
+            <div className="relative group overflow-hidden rounded-lg border bg-background p-2">
+            <Link
+                  to="/pages/login-signup"
+                  className="block overflow-hidden rounded-2xl border bg-white shadow-sm transition-transform hover:scale-105"
+                >
+                  <img
+                    src={photo5}
+                    alt='Signup'
+                    className="w-full object-cover"
+                  />
+                </Link>
+            </div>
+            <div className="relative group overflow-hidden rounded-lg border bg-background p-2">
+               <Link
+                  to="/pages/login-signup"
+                  className="block overflow-hidden rounded-2xl border bg-white shadow-sm transition-transform hover:scale-105"
+                >
+                  <img
+                    src={photo6}
+                    alt='Login'
                     className="w-full object-cover"
                   />
                 </Link>
