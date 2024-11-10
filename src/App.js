@@ -37,6 +37,7 @@ import WizardForm from "./pages/WizardForm"
 import PagesComponent from "./components/PagesComponent"
 import LandingPage from "./pages/LandingPage"
 import LoginSignup from "./pages/LoginSignup"
+import CollapseCard from "./pages/CollapseCard"
 
 
 const App = () => {
@@ -123,9 +124,10 @@ const ComponentsLayout = () => {
         <Route path="/badges-and-labels" element={<LabelsPage/>}/>
         <Route path="/tables" element={<TablePage/>}/>
         <Route path="/floating-dock" element={<FloatingDockPage/>}/>
-        <Route path="hero-background" element={<HeroBackground/>}/>
-        <Route path="wavy-background" element={<WaveBg/>}/>
-        <Route path="wizard-form" element={<WizardForm/>}/>
+        <Route path="/hero-background" element={<HeroBackground/>}/>
+        <Route path="/wavy-background" element={<WaveBg/>}/>
+        <Route path="/wizard-form" element={<WizardForm/>}/>
+        <Route path="collapse-card" element={<CollapseCard/>}/>
       </Routes>
       {isComponentsRoot && (
         <>

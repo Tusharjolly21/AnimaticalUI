@@ -4,7 +4,7 @@ import { FaHome, FaBell, FaList, FaTable, FaSlidersH, FaTags, FaToolbox, FaChart
 import { LuWalletCards,LuCircleDot } from "react-icons/lu";
 import { TbLayoutNavbar,TbBackground } from "react-icons/tb"
 import { PiShootingStar } from "react-icons/pi";
-import { PiSelectionBackground } from "react-icons/pi";
+import { PiSelectionBackground,PiCards } from "react-icons/pi";
 import { CiText } from "react-icons/ci";
 import { MdAnimation } from "react-icons/md";
 import { SiGoogleforms } from "react-icons/si"
@@ -15,6 +15,7 @@ const menuItems = [
   { icon: FaBell, text: 'Alerts and Notifications', link: '/components/alerts-and-notifications' },
   { icon: FaTags, text: 'Badges & Labels', link: '/components/badges-and-labels' },
   { icon: FaHome, text: 'Buttons', link: '/components/buttons' },
+  {icon: PiCards,text:'Collapse Card',link:'/components/collapse-card'},
   { icon: TbBackground, text: 'Cool Animated Background', link: '/components/cool-backgrounds' },
   {icon: MdAnimation , text: 'Feature Page',link:'/components/feature-page'},
   { icon: FaChevronDown, text: 'Footers', link: '/components/footers' },
@@ -35,7 +36,7 @@ const menuItems = [
   { icon: FaToolbox, text: 'Floating Dock', link: '/components/floating-dock' },
   { icon: LuWalletCards, text: '3D cards', link: '/components/threeD-cards' },
   {icon: PiSelectionBackground,text:'Wavy Background',link:'/components/wavy-background'},
-  {icon:SiGoogleforms,text:'Wizard Form',link:'/components/wizard-form'}
+  {icon:SiGoogleforms,text:'Wizard Form',link:'/components/wizard-form'},
 ]
 
 export default function Component({ isOpen, onClose }) {
