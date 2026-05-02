@@ -1,3 +1,93 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* CSS Variables for gradients */
+:root {
+  --gradient-hero: linear-gradient(
+    135deg,
+    #7c3aed 0%,
+    #06b6d4 50%,
+    #f97316 100%
+  );
+  --gradient-text: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+  --gradient-accent: linear-gradient(135deg, #f97316 0%, #ec4899 100%);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f0f23;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #6d28d9 0%, #0891b2 100%);
+}
+
+/* Base styles */
+body {
+  @apply bg-dark-900 text-slate-100;
+}
+
+/* Gradient text utility */
+.bg-gradient-text {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-gradient-accent {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Smooth transitions */
+* {
+  @apply transition-colors duration-200;
+}
+
+button,
+a {
+  @apply transition-all duration-300;
+}
+
+/* Focus states for accessibility */
+a:focus,
+button:focus {
+  @apply outline-none ring-2 ring-purple-600 ring-offset-2 ring-offset-dark-900;
+}
+
+/* Hero section background animation */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}

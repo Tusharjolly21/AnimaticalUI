@@ -1,43 +1,15 @@
-import { motion,useScroll } from "framer-motion"
-import { ArrowRight, Code, Palette, Zap } from "lucide-react"
+import { motion, useScroll } from "framer-motion"
+import { Code, Palette } from "lucide-react"
 import { Link } from "react-router-dom"
 import { FaReact } from "react-icons/fa"
 import { RiTailwindCssFill } from "react-icons/ri"
 import { TbBrandFramerMotion } from "react-icons/tb"
 import { useState, useEffect } from 'react'
 import ThreeDHomePage from "../components/ThreeDHomePage"
+import GradientText from "../components/GradientText"
+import AnimatedBadge from "../components/AnimatedBadge"
+import ScrollIndicator from "../components/ScrollIndicator"
 
-const MorphingShape = () => {
-  const [shape, setShape] = useState("circle")
-  
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setShape((prevShape) => 
-        prevShape === "circle" ? "square" : prevShape === "square" ? "triangle" : "circle"
-      )
-    }, 2000)
-    return () => clearInterval(timer)
-  }, [])
-
-  return (
-    <motion.div
-      className="w-full h-full flex items-center justify-center"
-      animate={{
-        borderRadius: shape === "circle" ? "50%" : shape === "square" ? "0%" : "50% 0 50% 50%",
-        rotate: shape === "triangle" ? 90 : 0,
-      }}
-      transition={{ duration: 0.5 }}
-    >
-      <motion.div
-        className="w-24 h-24 bg-gradient-to-br from-purple-500 to-pink-500"
-        animate={{
-          borderRadius: shape === "circle" ? "50%" : shape === "square" ? "0%" : "50% 0 50% 50%",
-        }}
-        transition={{ duration: 0.5 }}
-      />
-    </motion.div>
-  )
-}
 
 const ParticleField = () => {
   const particles = [...Array(50)].map((_, i) => ({
@@ -199,19 +171,23 @@ const ScrollProgressIndicator = () => {
   )
 }
 
-const AnimatedComponent = ({ title, children, className }: { title: string; children: React.ReactNode; className?: string }) => {
+const AnimatedComponent = ({ title, children, className }) => {
   return (
     <motion.div
-      className={`bg-white rounded-lg shadow-lg overflow-hidden ${className}`}
+      className={`bg-dark-800 border border-dark-700 hover:border-cyan-500/30 rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-glow-blue ${className}`}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.5 }}
+      whileHover={{ y: -5 }}
     >
-      <div className="aspect-square">{children}</div>
-      <div className="p-4">
-        <h3 className="text-xl font-semibold text-gray-800">{title}</h3>
-        <p className="mt-2 text-gray-600">Hover to see details</p>
+      <div className="aspect-square relative group overflow-hidden bg-gradient-to-br from-dark-700 to-dark-900">
+        {children}
+        <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      </div>
+      <div className="p-6">
+        <h3 className="text-lg font-bold text-slate-100">{title}</h3>
+        <p className="mt-2 text-slate-400 text-sm">Beautiful animated component</p>
       </div>
     </motion.div>
   )
@@ -219,140 +195,135 @@ const AnimatedComponent = ({ title, children, className }: { title: string; chil
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-100">
+    <div className="min-h-screen bg-dark-900">
       <ScrollProgressIndicator />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-          {/* Left Column */}
+
+      {/* Hero Section */}
+      <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Gradient Background */}
+        <div className="absolute inset-0 bg-gradient-hero opacity-20 animate-gradient" />
+
+        {/* Particles Background */}
+        <div className="absolute inset-0">
+          <ParticleField />
+        </div>
+
+        {/* Hero Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            className="mb-6"
+          >
+            <AnimatedBadge variant="primary">
+              Welcome to Animatical UI
+            </AnimatedBadge>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-5xl md:text-7xl lg:text-8xl font-black mb-6"
+          >
+            <GradientText>
+              Elevate Your Web
+            </GradientText>
+            <div className="text-slate-100 mt-4">
+              with Stunning <span className="text-accent-500">Animations</span>
+            </div>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-xl md:text-2xl text-slate-300 mb-12 max-w-3xl mx-auto"
+          >
+            Copy, paste, and customize beautiful animated components. Build stunning websites in record time with our curated collection of modern UI elements.
+          </motion.p>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="lg:col-span-1"
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex flex-col sm:flex-row gap-6 justify-center mb-16"
           >
-            <div className="flex flex-col">
-              <motion.div
-                className="bg-blue-100 rounded-full px-4 py-1.5 text-sm font-medium text-blue-800 mb-8 inline-block"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Welcome to Animatical →
-              </motion.div>
-              <motion.div
-                className="bg-blue-100 rounded-full px-4 py-1.5 text-sm text-black font-medium text-blue-800 mb-8 inline-block"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Better view on Desktop →
-              </motion.div>
-            </div>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Elevate your websites with{" "}
-              <span className="text-blue-600">Animatical</span>
-            </h1>
-            <p className="text-lg md:text-xl text-gray-600 mb-8">
-              Discover, copy, and paste trending components to transform your websites.
-              Streamline your development process with pre-styled, animated elements.
-            </p>
-            <div className="flex flex-wrap gap-4">
+            <Link to="/components">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium flex items-center gap-2"
+                className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-4 rounded-xl font-bold text-lg flex items-center gap-2 shadow-glow"
               >
-                <Code className="h-5 w-5" />
-                <Link to="/components">
-                  Explore Components
-                </Link>
+                <Code className="h-6 w-6" />
+                Explore Components
               </motion.button>
+            </Link>
+            <Link to="/pricing">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white text-gray-900 px-6 py-3 rounded-lg font-medium border border-gray-200 flex items-center gap-2"
+                className="border-2 border-cyan-500 text-cyan-400 hover:bg-cyan-500/10 px-8 py-4 rounded-xl font-bold text-lg flex items-center gap-2"
               >
-                <Palette className="h-5 w-5" />
-                <Link to="/pricing">
+                <Palette className="h-6 w-6" />
                 Custom Designs
-                </Link>
               </motion.button>
+            </Link>
+          </motion.div>
+
+          {/* Tech Stack */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="flex flex-wrap items-center justify-center gap-8 text-slate-400"
+          >
+            <div className="flex items-center gap-2 hover:text-cyan-400 transition">
+              <FaReact className="h-6 w-6" />
+              <span className="hidden sm:inline">React</span>
             </div>
-            <div className="flex flex-wrap items-center gap-8 mt-12">
-              <div className="flex items-center gap-2">
-                <FaReact className="h-8 w-8 md:h-10 md:w-10 text-blue-500" />
-                <span>React</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <RiTailwindCssFill className="h-8 w-8 md:h-10 md:w-10 text-blue-400" />
-                <span>TailwindCSS</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <TbBrandFramerMotion className="h-8 w-8 md:h-10 md:w-10 text-purple-500" />
-                <span>Framer Motion</span>
-              </div>
+            <div className="flex items-center gap-2 hover:text-cyan-400 transition">
+              <RiTailwindCssFill className="h-6 w-6" />
+              <span className="hidden sm:inline">Tailwind</span>
+            </div>
+            <div className="flex items-center gap-2 hover:text-cyan-400 transition">
+              <TbBrandFramerMotion className="h-6 w-6" />
+              <span className="hidden sm:inline">Framer Motion</span>
             </div>
           </motion.div>
 
-          {/* Right Column */}
-          <div className="space-y-6 lg:col-span-1">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-blue-600 rounded-2xl p-6 md:p-8 text-white"
-            >
-              <h2 className="text-lg md:text-xl font-bold mb-4">
-                Supercharge your development
-              </h2>
-              <p className="text-blue-100">
-                With Components Hub, build stunning websites in record time.
-                Our curated collection of components is designed to boost your productivity.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="bg-white rounded-2xl p-6 shadow-lg"
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <div className="h-10 w-10 rounded-full bg-blue-500 flex items-center justify-center">
-                  <Zap className="h-6 w-6 text-white" />
-                </div>
-                <span className="font-medium text-gray-900">Featured Components</span>
-              </div>
-              <h3 className="text-xl font-bold mb-2 text-gray-900">
-                Advanced Animated Gallery
-              </h3>
-              <div className="grid grid-cols-3 gap-2 mt-4">
-                <div className="aspect-square rounded-lg overflow-hidden bg-gradient-to-br from-purple-100 to-pink-100">
-                  <MorphingShape />
-                </div>
-                <div className="aspect-square rounded-lg overflow-hidden">
-                  <ParticleField />
-                </div>
-                <div className="aspect-square rounded-lg overflow-hidden">
-                  <TextScramble text="ANIMATE" />
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="bg-gray-900 rounded-2xl p-6 md:p-8 text-white flex items-center justify-between"
-              whileHover={{ scale: 1.02 }}
-            >
-              <span className="text-xl md:text-2xl font-bold">Get started now</span>
-              <ArrowRight className="h-6 w-6" />
-            </motion.div>
-          </div>
+          {/* Scroll Indicator */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2 }}
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          >
+            <ScrollIndicator />
+          </motion.div>
         </div>
+      </div>
 
-        <div className="mt-24">
-          <h2 className="text-6xl md:text-4xl text-blue-600 font-bold text-center mb-12">Explore Our Animated Components</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {/* Components Showcase Section */}
+      <div className="relative z-20 bg-dark-900 py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6">
+              Featured <GradientText>Components</GradientText>
+            </h2>
+            <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+              Handpicked animated components to accelerate your development
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <AnimatedComponent title="Particle Moving" className="col-span-1 sm:col-span-1 lg:col-span-2">
               <ParticleField />
             </AnimatedComponent>
